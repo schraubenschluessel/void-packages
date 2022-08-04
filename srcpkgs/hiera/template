@@ -1,0 +1,14 @@
+# Template file for 'hiera'
+pkgname=hiera
+version=3.10.0
+revision=1
+build_style=ruby-module
+hostmakedepends="ruby"
+depends="ruby"
+short_desc="Simple pluggable Hierarchical Database"
+maintainer="Christian Poulwey <christian.poulwey@t-online.de>"
+license="Apache-2.0"
+homepage="http://projects.puppetlabs.com/projects/hiera"
+distfiles="http://github.com/puppetlabs/${pkgname}/archive/${version}.tar.gz"
+checksum=@6ceaf25569ed724dad5a505a606e741224ead3de6f22095b70c96241de1c299b
+conf_files="/etc/hiera.yaml"
