@@ -1,0 +1,26 @@
+# Template file for 'puppet'
+pkgname=puppet
+version=7.18.0
+revision=1
+build_style=ruby-module
+hostmakedepends="ruby facter-devel hiera which"
+makedepends="facter-devel"
+depends="ruby facter ruby-semantic_puppet augeas ruby-concurrent-ruby ruby-multi_json ruby-deep_merge hiera"
+short_desc="Server automation framework and application"
+maintainer="Christian Poulwey <christian.poulwey@t-online.de>"
+license="Apache-2.0"
+homepage="https://puppetlabs.com/facter"
+distfiles="https://downloads.puppetlabs.com/${pkgname}/${pkgname}-${version}.tar.gz"
+checksum=@5e936eac1b316b946a2f280f1ff44ac7412b1413c6e50f5f7f65413bc1cc63e0
+
+system_accounts="puppet"
+puppet_homedir="/var/lib/puppet"
+conf_files="
+ /etc/puppetlabs/puppet/puppet.conf"
+# /etc/puppetlabs/puppet/auth.conf"
+make_dirs="/var/lib/puppet 0755 puppet puppet"
+
+post_install() {
+	vsv puppet
+	vsv puppetmaster
+}
